@@ -1,0 +1,69 @@
+﻿/*Text input styling*/
+#note-input {
+    width: 100%;
+    border: 0px;
+    max-width: 100%;
+    box-sizing:border-box;
+    font-size: 16pt;
+    line-height: 30pt;
+}
+#note-span {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+#note-list {
+  font-size: 16pt;
+  line-height: 30pt;
+}
+
+/*Center input placeholder text*/
+::-webkit-input-placeholder {
+   text-align: center;
+}
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+:-ms-input-placeholder {  
+   text-align: center; 
+}
+
+/*Site.css*/
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
