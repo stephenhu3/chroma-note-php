@@ -1,5 +1,6 @@
-﻿    <!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
 </head>
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -19,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                
+
             </div>
 
             <ul class="nav navbar-nav">
@@ -40,7 +42,8 @@
 
         <div class="jumbotron" id="note-textarea">
             <form action="notes.php" method="GET" name="notelist">
-                Show note list of: <input type="text" name="user" value=""/>
+                Show note list of:
+                <input type="text" name="user" value="" />
                 <input type="submit" value="Go" />
             </form>
 
@@ -52,19 +55,11 @@
             <span id="note-span"><input type="text" id="note-input" placeholder="Type and Press Enter"></span>
         </div>
 
-        <!-- <form name="editWish" action="editWish.php" method="POST">
-            Describe your wish: <input type="text" name="wish"  value="" /><br/>
-            When do you want to get it? <input type="text" name="dueDate" value=""/><br/>
-            <input type="submit" name="saveWish" value="Save Changes"/>
-            <input type="submit" name="back" value="Back to the List"/>
-        </form> -->
 
-        
-        <!-- <input type="submit" class="button" name="Get Note" value="getNote" /> -->
-        <input type="submit" class="button saveNote" name="Save Note" value="testSaveNote" />        
+        <input type="submit" class="button saveNote" name="Save Note" value="testSaveNote" />
 
         <script>
-            $(document).ready(function(){
+            $(document).ready(function() {
                 // $('.button').click(function(){
                 //     var noteContent = document.getElementById('note').innerHTML;
                 //     var clickBtnValue = $(this).val();
@@ -79,17 +74,17 @@
 
 
 
-                $('.button.saveNote').click(function(){
-                    console.log("test save note pressed");
+                $('.button.saveNote').click(function() {
+                    console.log("Insert note pressed");
                     var noteContent = document.getElementById('note').innerHTML;
                     var userDate = getCurrentDate();
                     var ajaxurl = 'ajax.php',
-                    data =  {
-                                'action': 'testSaveNote',
-                                'noteContent': noteContent,
-                                'userDate': userDate
-                            };
-                    $.post(ajaxurl, data, function (response) {
+                        data = {
+                            'action': 'insert_note',
+                            'noteContent': noteContent,
+                            'userDate': userDate
+                        };
+                    $.post(ajaxurl, data, function(response) {
                         // Response div goes here.
                         console.log(response);
                         console.log("action performed successfully");
@@ -99,14 +94,16 @@
             });
         </script>
 
-         <form name="saveNote" action="editWish.php">            
+        <!-- <form name="saveNote" action="editWish.php">
             <input type="submit" value="Add Wish">
-        </form>
+        </form> -->
+
         <hr />
-    <div class="footer">
-        <p>Developed by <a href="https://github.com/stephenhu3">Stephen Hu</a> | stephenhu3@gmail.com</p>
+        <div class="footer">
+            <p>Developed by <a href="https://github.com/stephenhu3">Stephen Hu</a> | stephenhu3@gmail.com</p>
+        </div>
     </div>
-    </div>
-    
+
 </body>
+
 </html>
