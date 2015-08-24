@@ -7,7 +7,7 @@ if (isset($_POST['action'])) {
             $noteContent = $_POST["noteContent"];
             $userDate    = $_POST["userDate"];
             echo $noteContent;
-            NoteDB::getInstance()->insert_note(1, $noteContent, $userDate);
+            WishDB::getInstance()->insert_note(1, $noteContent, $userDate);
             break;
     }
 }
