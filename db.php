@@ -142,8 +142,8 @@ class NoteDB
         $result = null;
         
         $query = "
-            SELECT w.id ID, w.description DESCRIPTION,
-            format_date_created(w.date_created) date_created, wr.id WRID
+            SELECT w.id ID, w.content CONTENT,
+            w.date_created DATE_CREATED, wr.id WRID
             FROM notes w RIGHT OUTER JOIN users wr
             ON wr.id = w.user_id
             WHERE wr.name = :user_bv
@@ -174,8 +174,7 @@ class NoteDB
         $stid  = null;
         
         $query = "
-            SELECT id ID, description DESCRIPTION,
-            format_date_created(date_created) date_created
+            SELECT id ID, content CONTENT, date_created DATE_CREATED
             FROM notes
             WHERE user_id =  :id_bv
             ";
@@ -262,7 +261,7 @@ class NoteDB
                 )
             ";
         
-        $stid = $con->prepare($query);
+        $stid = $this->con->prepare($query);
         $stid->bindParam(":user_id_bv", $user_id, PDO::PARAM_INT);
         $stid->bindParam(':content_bv', $content, PDO::PARAM_STR);
         $stid->bindParam(':date_created_bv', $date_created, PDO::PARAM_STR);
@@ -290,13 +289,12 @@ class NoteDB
         $query = "";
         $stid  = null;
         
-        $date = $this->format_date_for_sql($date_created);
         var_dump($date, $id);
         
         $query = "
             UPDATE notes
-            SET description = :content_bv,
-            date_created = set_date_created(:date_created_bv)
+            SET content = :content_bv,
+            date_created = :date_created_bv
             WHERE id = :note_id_bv
             ";
         $stid  = $this->con->prepare($query);
@@ -319,8 +317,7 @@ class NoteDB
         $row   = array();
         
         $query = "
-            SELECT id ID, description DESCRIPTION,
-            format_date_created(date_created) date_created
+            SELECT id ID, content CONTENT, date_created DATE_CREATED
             FROM notes
             WHERE id = :note_id_bv
             ";
