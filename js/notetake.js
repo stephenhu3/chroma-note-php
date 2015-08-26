@@ -1,4 +1,41 @@
-﻿$(document).ready(function () {
+﻿var getCurrentDate = function() {
+    return new Date().toJSON().slice(0, 10);
+};
+
+var saveNotes = function() {
+    var noteContent = document.getElementById('note').innerHTML;
+    var userDate = getCurrentDate();
+    var ajaxurl = '../ajax.php',
+        data = {
+            'action': 'insert_note',
+            'noteContent': noteContent,
+            'userDate': userDate
+        };
+    $.post(ajaxurl, data, function(response) {
+        // Response goes here
+        console.log(response);
+        console.log("Action performed successfully");
+    });
+};
+
+var clearNotes = function() {
+    $('#note-list').empty();
+};
+
+var buttonFlashNotice = function(displayText, target, callback) {
+    callback();
+    var timeout = 650;
+    var originalText = target.html();
+    target.html(displayText);
+
+    function resetButtonState() {
+        target.html(originalText);
+    }
+    
+    setTimeout(resetButtonState, timeout);
+};
+
+$(document).ready(function() {
     // focus on the input
     var textInput = $("#note-input");
     textInput.focus();
@@ -10,7 +47,7 @@
     colors["green"] = "#299228";
     colors["red"] = "#ba1d1d";
     colors["orange"] = "#ed8a00";
-    
+
     // literal array to store the color hex values
     colorsArr = [];
     for (var key in colors) {
@@ -27,11 +64,11 @@
         }
     });
 
-    $(document).keydown(function (event) {
+    $(document).keydown(function(event) {
         if (event.which === 18) {
             console.log("alt pressed down");
             // cycling through colors
-            $(document).keydown(function (event) {
+            $(document).keydown(function(event) {
                 if (event.which === 16) {
                     console.log("shift pressed down");
                     currentColor = currentColor >= colorsArr.length - 1 ? 0 : ++currentColor;
@@ -42,40 +79,54 @@
                 }
             });
 
-            $(document).keydown(function (event) {
+            $(document).keydown(function(event) {
                 if (event.which === 49) {
                     currentColor = 0;
                     textInput.css("color", colorsArr[currentColor]);
                 }
             });
 
-            $(document).keydown(function (event) {
+            $(document).keydown(function(event) {
                 if (event.which === 50) {
                     currentColor = 1;
                     textInput.css("color", colorsArr[currentColor]);
                 }
             });
 
-            $(document).keydown(function (event) {
+            $(document).keydown(function(event) {
                 if (event.which === 51) {
                     currentColor = 2;
                     textInput.css("color", colorsArr[currentColor]);
                 }
             });
 
-            $(document).keydown(function (event) {
+            $(document).keydown(function(event) {
                 if (event.which === 52) {
                     currentColor = 3;
                     textInput.css("color", colorsArr[currentColor]);
                 }
             });
 
-            $(document).keydown(function (event) {
+            $(document).keydown(function(event) {
                 if (event.which === 53) {
                     currentColor = 4;
                     textInput.css("color", colorsArr[currentColor]);
                 }
             });
         }
+    });
+
+    $('.btn-delete-item').btsConfirmButton({
+        msg: "Click to Confirm Discard"
+    }, function(e) {
+        // Call function to clear notes
+        clearNotes();
+    });
+
+    $('.btn-flash-notice').click(function() {
+        buttonFlashNotice("Note Saved to Database!", $(this), function(e) {
+            // Call function to save notes
+            saveNotes();
+        });
     });
 });

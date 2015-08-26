@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/notetake.js"></script>
+    <script src="js/bootstrap-confirm-button.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
 </head>
@@ -42,11 +43,11 @@
         <h2>ChromaNote</h2>
 
         <div class="jumbotron" id="note-textarea">
-            <form action="notes.php" method="GET" name="notelist">
+            <!-- <form action="notes.php" method="GET" name="notelist">
                 Show note list of:
                 <input type="text" name="user" value="" />
                 <input type="submit" value="Go" />
-            </form>
+            </form> -->
 
             <div id="note">
                 <ul id="note-list">
@@ -56,44 +57,8 @@
             <span id="note-span"><input type="text" id="note-input" placeholder="Type and Press Enter"></span>
         </div>
 
-
-        <input type="submit" class="button saveNote" name="Save Note" value="testSaveNote" />
-
-        <script>
-            $(document).ready(function() {
-                // $('.button').click(function(){
-                //     var noteContent = document.getElementById('note').innerHTML;
-                //     var clickBtnValue = $(this).val();
-                //     var ajaxurl = 'ajax.php',
-                //     data =  {'action': clickBtnValue};
-                //     $.post(ajaxurl, data, function (response) {
-                //         // Response div goes here.
-                //         console.log(response);
-                //         console.log("action performed successfully");
-                //     });
-                // });
-
-
-
-                $('.button.saveNote').click(function() {
-                    console.log("Insert note pressed");
-                    var noteContent = document.getElementById('note').innerHTML;
-                    var userDate = getCurrentDate();
-                    var ajaxurl = 'ajax.php',
-                        data = {
-                            'action': 'insert_note',
-                            'noteContent': noteContent,
-                            'userDate': userDate
-                        };
-                    $.post(ajaxurl, data, function(response) {
-                        // Response div goes here.
-                        console.log(response);
-                        console.log("action performed successfully");
-                    });
-                });
-
-            });
-        </script>
+        <button type="button" class="btn btn-success btn-block button btn-flash-notice saveNote">Save Note</button>
+        <button type="button" class="btn btn-warning btn-block button btn-delete-item discardNote">Discard Note</button>
 
         <!-- <form name="saveNote" action="editWish.php">
             <input type="submit" value="Add Wish">
