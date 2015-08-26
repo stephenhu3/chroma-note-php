@@ -1,0 +1,12 @@
+{
+    "name": "stephenhu3/chroma-note-php",
+    "description": "Save note, color shortcuts, export to PDF",
+    "authors": [
+        {
+            "name": "Stephen Hu",
+            "email": "stephenhu3@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
