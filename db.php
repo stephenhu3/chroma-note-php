@@ -9,19 +9,25 @@ class NoteDB
      *
      * @var string
      */
-    const USER = "phpadmin";
+    const USER_PROD = "bec1d32126cd5d"
+    const USER_LOCAL = "phpadmin";
     /**
      * Holds database password
      *
      * @var string
      */
+    const PASS_PROD = "08aee5da";
     const PASS = "php";
     /**
      * Holds MySQL database source name
      *
      * @var string
      */
-    const MYSQL_DSN = "mysql:host=MBP13.local;port=3307;dbname=chromanote";
+    // const MYSQL_DSN_PROD = "mysql:host=us-cdbr-iron-east-02.cleardb.net/heroku_a1aa1d13ac0368f?reconnect=true"
+    const MYSQL_DSN_PROD = "mysql:host=us-cdbr-iron-east-02.cleardb.net;dbname=heroku_fad7ed309967c54";
+    // mysql://phpadmin:php@24.85.190.49:3307/chromanote
+    // mysql:host=MBP13.local;port=3307;dbname=chromanote
+    const MYSQL_DSN_LOCAL = "mysql:host=MBP13.local;port=3307;dbname=chromanote";
     /**
      * Holds instance of the class itself
      *
@@ -85,7 +91,7 @@ class NoteDB
          * is wrapped in try/catch block and new Exception is thrown
          */
         try {
-            $this->con = new PDO(self::MYSQL_DSN, self::USER, self::PASS, array(
+            $this->con = new PDO(self::MYSQL_DSN_PROD, self::USER_PROD, self::PASS_PROD, array(
                 PDO::ATTR_PERSISTENT => true,
                 PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'",
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -142,8 +148,8 @@ class NoteDB
         $result = null;
         
         $query = "
-            SELECT w.id ID, w.content CONTENT,
-            w.date_created DATE_CREATED, wr.id WRID
+            SELECT w.id ID, w.content content,
+            date_created, wr.id WRID
             FROM notes w RIGHT OUTER JOIN users wr
             ON wr.id = w.user_id
             WHERE wr.name = :user_bv
@@ -174,7 +180,8 @@ class NoteDB
         $stid  = null;
         
         $query = "
-            SELECT id ID, content CONTENT, date_created DATE_CREATED
+            SELECT id ID, content content,
+            date_created
             FROM notes
             WHERE user_id =  :id_bv
             ";
@@ -317,7 +324,8 @@ class NoteDB
         $row   = array();
         
         $query = "
-            SELECT id ID, content CONTENT, date_created DATE_CREATED
+            SELECT id ID, content content,
+            date_created
             FROM notes
             WHERE id = :note_id_bv
             ";
