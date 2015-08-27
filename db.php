@@ -10,18 +10,21 @@ class NoteDB
      * @var string
      */
     const USER_EXAMPLE = "phpadmin";
+    const USER_PROD = getenv("USER_PROD");
     /**
      * Holds database password
      *
      * @var string
      */
     const PASS_EXAMPLE = "php";
+    const PASS_PROD = getenv("PASS_PROD");
     /**
      * Holds MySQL database source name
      *
      * @var string
      */
     const MYSQL_DSN_EXAMPLE = "mysql:host=MBP13.local;port=3307;dbname=chromanote";
+    const MYSQL_DSN_PROD = getenv("MYSQL_DSN_PROD");
     /**
      * Holds instance of the class itself
      *
@@ -84,12 +87,8 @@ class NoteDB
          * To avoid showing database connection details PDO constructor
          * is wrapped in try/catch block and new Exception is thrown
          */
-        $USER_PROD = getenv('USER_PROD');
-        $PASS_PROD = getenv('PASS_PROD');
-        $MYSQL_DSN_PROD = getenv('MYSQL_DSN_PROD');
-
         try {
-            $this->con = new PDO($MYSQL_DSN_PROD, $USER_PROD, $PASS_PROD, array(
+            $this->con = new PDO(self::MYSQL_DSN_PROD, self::USER_PROD, self::PASS_PROD, array(
                 PDO::ATTR_PERSISTENT => true,
                 PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'",
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
