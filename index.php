@@ -14,30 +14,32 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-            </div>
-
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="index.php" class="header-links">ChromaNote</a></li>
-                <li><a href="templates/notes.php" class="header-links">Notes</a></li>
-                <li><a href="templates/about.php" class="header-links">About</a></li>
-            </ul>
-
-            <div class="navbar-collapse collapse">
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li></li>
+                    <li class="active"><a href="index.php" class="header-links">ChromaNote</a></li>
+                    <li><a href="templates/notes.php" class="header-links">Notes</a></li>
+                    <li><a href="templates/about.php" class="header-links">About</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://github.com/stephenhu3" class="github-link" target="_blank"><img class="logo" src="img/logo.png">GitHub | Stephen Hu</a>
+                    </li>
                 </ul>
             </div>
         </div>
-    </div>
+    </nav>
+
     <div class="container body-content">
 
         <h2>ChromaNote</h2>

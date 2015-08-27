@@ -64,6 +64,14 @@ input[type="checkbox"].input-validation-error {
     color: #b94a48;
 }
 
+.logo {
+  height: 15px;
+  width: 15px;
+  right: 6px;
+  bottom: 2px;
+  position: relative;
+}
+
 .validation-summary-valid {
     display: none;
 }
