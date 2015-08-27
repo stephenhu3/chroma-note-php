@@ -33,7 +33,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="https://github.com/stephenhu3" class="github-link" target="_blank"><img class="logo" src="img/logo.png">GitHub | Stephen Hu</a>
+                        <a href="https://github.com/stephenhu3" class="github-link" target="_blank"><img class="logo" src="../img/logo.png">GitHub | Stephen Hu</a>
                     </li>
                 </ul>
             </div>
