@@ -84,9 +84,9 @@ class NoteDB
          * To avoid showing database connection details PDO constructor
          * is wrapped in try/catch block and new Exception is thrown
          */
-        $USER_PROD = getenv("USER_PROD");
-        $PASS_PROD = getenv("PASS_PROD");
-        $MYSQL_DSN_PROD = getenv("MYSQL_DSN_PROD");
+        $USER_PROD = getenv('USER_PROD');
+        $PASS_PROD = getenv('PASS_PROD');
+        $MYSQL_DSN_PROD = getenv('MYSQL_DSN_PROD');
 
         try {
             $this->con = new PDO($MYSQL_DSN_PROD, $USER_PROD, $PASS_PROD, array(
