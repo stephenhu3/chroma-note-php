@@ -10,21 +10,24 @@ class NoteDB
      * @var string
      */
     const USER_EXAMPLE = "phpadmin";
-    const USER_PROD = getenv("USER_PROD");
+    $user_prod = getenv("USER_PROD");
+    const USER_PROD = $user_prod;
     /**
      * Holds database password
      *
      * @var string
      */
     const PASS_EXAMPLE = "php";
-    const PASS_PROD = getenv("PASS_PROD");
+    $pass_prod = getenv("PASS_PROD");
+    const PASS_PROD = $pass_prod;
     /**
      * Holds MySQL database source name
      *
      * @var string
      */
     const MYSQL_DSN_EXAMPLE = "mysql:host=MBP13.local;port=3307;dbname=chromanote";
-    const MYSQL_DSN_PROD = getenv("MYSQL_DSN_PROD");
+    $mysql_dsn_example = getenv("MYSQL_DSN_PROD");
+    const MYSQL_DSN_PROD = $mysql_dsn_example;
     /**
      * Holds instance of the class itself
      *
