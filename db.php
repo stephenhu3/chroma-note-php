@@ -9,22 +9,22 @@ class NoteDB
      *
      * @var string
      */
-    const USER_LOCAL = "phpadmin";
-    const USER_PROD = "bec1d32126cd5d";     
+    const USER_EXAMPLE = "phpadmin";
+    const USER_PROD = $_ENV["USER_PROD"];
     /**
      * Holds database password
      *
      * @var string
      */
-    const PASS_LOCAL = "php";
-    const PASS_PROD = "08aee5da";
+    const PASS_EXAMPLE = "php";
+    const PASS_PROD = $_ENV["PASS_PROD"];
     /**
      * Holds MySQL database source name
      *
      * @var string
      */
-    const MYSQL_DSN_LOCAL = "mysql:host=MBP13.local;port=3307;dbname=chromanote";
-    const MYSQL_DSN_PROD = "mysql:host=us-cdbr-iron-east-02.cleardb.net;port=0;dbname=heroku_fad7ed309967c54";
+    const MYSQL_DSN_EXAMPLE = "mysql:host=MBP13.local;port=3307;dbname=chromanote";
+    const MYSQL_DSN_PROD = $_ENV["MYSQL_DSN_PROD"];
     /**
      * Holds instance of the class itself
      *
