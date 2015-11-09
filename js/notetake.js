@@ -4,7 +4,11 @@
 
 var saveNotes = function() {
     var noteContent = document.getElementById('note').innerHTML;
-    if (noteContent.indexOf("<script>") > -1) {
+    if (noteContent.length < 1) {
+        alert("Please enter some content in your note before saving.");
+        return;
+    }
+    else if (noteContent.indexOf("<script>") > -1) {
         alert("Note not saved. Please strip your notes of <script> tags before saving. Press \"Discard Note\"");
         return;
     }
