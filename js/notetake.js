@@ -4,7 +4,8 @@
 
 var saveNotes = function() {
     var noteContent = document.getElementById('note').innerHTML;
-    if (noteContent.length < 1) {
+    var numNotes = document.getElementById('note-list').children.length;
+    if (numNotes.length < 1) {
         alert("Please enter some content in your note before saving.");
         return;
     }
@@ -67,6 +68,10 @@ $(document).ready(function() {
     $(document).keyup(function(event) {
         if (event.which === 13) { // enter pressed
             console.log("enter pressed\n");
+            if (textInput.val().length < 1) {
+                alert("Please enter some content before submitting.");
+                return;
+            }
             $("#note-list").append("<li style=\"color:" + colorsArr[currentColor] + "\">" + textInput.val() + "</li>");
             textInput.val('');
         }
