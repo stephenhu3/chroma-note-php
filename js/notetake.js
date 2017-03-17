@@ -138,8 +138,9 @@ $(document).ready(function() {
 
     $('.btn-flash-notice').click(function() {
         buttonFlashNotice("Note Saved to Database!", $(this), function(e) {
-            // Call function to save notes
+            // Save to database & clear the notes onscreen
             saveNotes();
+            clearNotes();
         });
     });
 });

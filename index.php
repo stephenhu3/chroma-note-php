@@ -50,7 +50,7 @@
          <button type="button" class="btn btn-warning btn-block button btn-delete-item discardNote">Discard Note</button>
          <hr />
          <div class="footer">
-            <p>Developed by <a href="https://github.com/stephenhu3">Stephen Hu</a> | stephenhu3@gmail.com</p>
+            <p>Developed for fun by <a href="https://github.com/stephenhu3">Stephen Hu</a></p>
          </div>
       </div>
    </body>
