@@ -151,6 +151,7 @@ class NoteDB
             FROM notes w RIGHT OUTER JOIN users wr
             ON wr.id = w.user_id
             WHERE wr.name = :user_bv
+            ORDER BY w.date_created DESC
             ";
         
         $stid = $this->con->prepare($query);

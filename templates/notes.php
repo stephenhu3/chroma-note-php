@@ -72,7 +72,7 @@
         </div>
         <hr />
         <div class="footer">
-            <p>Developed by <a href="https://github.com/stephenhu3">Stephen Hu</a> | stephenhu3@gmail.com</p>
+            <p>Developed for fun by <a href="https://github.com/stephenhu3">Stephen Hu</a></p>
         </div>
     </div>
 </body>
