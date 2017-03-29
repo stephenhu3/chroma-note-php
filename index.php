@@ -8,8 +8,6 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
       <script src="js/notetake.js"></script>
       <script src="js/bootstrap-confirm-button.js"></script>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
-      <link rel="stylesheet" href="css/styles.css" type="text/css">
       <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -19,6 +17,8 @@
         ga('create', 'UA-57297383-1', 'auto');
         ga('send', 'pageview');
       </script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
+      <link rel="stylesheet" href="css/styles.css" type="text/css">
    </head>
    <body>
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
